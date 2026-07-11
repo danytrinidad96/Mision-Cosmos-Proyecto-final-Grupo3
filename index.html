@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Misión Cosmos: Metaverso educativo del Sistema Solar para 4to Grado. Ciencias de la Naturaleza – Grupo 3.">
+    <title>Misión Cosmos · Sistema Solar · 4to Grado · Grupo 3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+/* ──────────────────────────────────────────────────────
+   RESET & TOKENS
+────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --c:   #06b6d4; --co:.15;   /* cyan */
+  --g:   #eab308; --go:.15;   /* gold */
+  --p:   #a855f7; --po:.12;   /* purple */
+  --r:   #ef4444;             /* red   */
+  --grn: #10b981;             /* green */
+  --bg:  #020712;
+  --s1:  #0d1630;
+  --s2:  rgba(255,255,255,.05);
+  --bd:  rgba(6,182,212,.20);
+  --txt: #f1f5f9;
+  --mut: #94a3b8;
+  --fnt: 'Poppins',sans-serif;
+}
+html{scroll-behavior:smooth}
+.hidden{display:none !important}
+body{background:radial-gradient(ellipse 80% 60% at 30% 10%,#0a1a40 0%,var(--bg) 65%);
+     color:var(--txt);font-family:var(--fnt);min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(white 1px,transparent 1px) 0 0/100px 100px,
+             radial-gradient(white 1px,transparent 1px) 50px 50px/170px 170px;
+  opacity:.10}
+
+/* ──────────────────────────────────────────────────────
+   LAYOUT
+────────────────────────────────────────────────────── */
+.z1{position:relative;z-index:1}
+.wrap{max-width:1160px;margin:0 auto;padding:0 1.25rem}
+.glass{background:rgba(8,14,32,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+       border:1px solid var(--bd);border-radius:18px}
+
+/* ──────────────────────────────────────────────────────
+   ANIMATIONS
+────────────────────────────────────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes pulseCyan{0%,100%{box-shadow:0 0 0 0 rgba(6,182,212,.4)}50%{box-shadow:0 0 18px 6px rgba(6,182,212,.55)}}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+@keyframes emergencyGlow{from{box-shadow:0 0 10px rgba(239,68,68,.3)}to{box-shadow:0 0 32px rgba(239,68,68,.65)}}
+@keyframes confettiFall{to{transform:translateY(100vh) rotate(720deg);opacity:0}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+.au{animation:fadeUp .55s ease both}
+.d1{animation-delay:.07s}.d2{animation-delay:.14s}.d3{animation-delay:.21s}.d4{animation-delay:.28s}
+
+/* ──────────────────────────────────────────────────────
+   TOP BAND
+────────────────────────────────────────────────────── */
+.top-band{border-bottom:1px solid rgba(6,182,212,.12);padding:.85rem 1.25rem}
+.top-band-in{max-width:1160px;margin:0 auto;display:flex;flex-wrap:wrap;
+             align-items:center;justify-content:space-between;gap:.75rem}
+.logo-row{display:flex;align-items:center;gap:.85rem}
+.logo-row img{height:48px;object-fit:contain;filter:drop-shadow(0 0 6px rgba(6,182,212,.35))}
+.logo-txt h1{font-size:.82rem;font-weight:800;text-transform:uppercase;line-height:1.3}
+.logo-txt p{font-size:.62rem;color:var(--mut)}
+.tag-row{display:flex;flex-wrap:wrap;gap:.35rem}
+.tag{display:inline-flex;align-items:center;gap:.3rem;padding:.22rem .75rem;border-radius:100px;
+     font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.tag-c{background:rgba(6,182,212,.10);border:1px solid rgba(6,182,212,.30);color:var(--c)}
+.tag-g{background:rgba(234,179,8,.10); border:1px solid rgba(234,179,8,.30); color:var(--g)}
+.tag-p{background:rgba(168,85,247,.10);border:1px solid rgba(168,85,247,.30);color:var(--p)}
+
+/* ──────────────────────────────────────────────────────
+   HERO
+────────────────────────────────────────────────────── */
+.hero{padding:3rem 1.25rem 2rem}
+.hero-grid{max-width:1160px;margin:0 auto;display:grid;gap:2.5rem;grid-template-columns:1fr}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.1fr .9fr;align-items:start}}
+.hero-left{display:flex;flex-direction:column;gap:1.1rem}
+.hero-eyebrow{display:flex;align-items:center;gap:.6rem;font-size:.62rem;font-weight:800;
+              text-transform:uppercase;letter-spacing:1.5px;color:var(--c)}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--c)}
+.hero-title{font-size:clamp(2.6rem,6vw,4rem);font-weight:900;line-height:1.02;letter-spacing:-1.5px;
+            background:linear-gradient(135deg,#67e8f9 0%,#f59e0b 45%,#c084fc 100%);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+            text-transform:uppercase}
+.hero-sub{font-size:.88rem;color:var(--mut);line-height:1.65;max-width:540px}
+.meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin-top:.2rem}
+.meta-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+           border-radius:12px;padding:.65rem .9rem}
+.meta-card .lbl{font-size:.55rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;
+                color:var(--c);margin-bottom:.12rem}
+.meta-card .val{font-size:.76rem;font-weight:600;line-height:1.3}
+
+/* Launch card */
+.launch-card{padding:1.75rem;border:1.5px solid rgba(6,182,212,.35);
+             box-shadow:0 0 35px rgba(6,182,212,.08)}
+.launch-card h3{font-size:.85rem;font-weight:800;text-transform:uppercase;color:var(--g);
+                margin-bottom:.35rem;display:flex;align-items:center;gap:.4rem}
+.launch-card p{font-size:.72rem;color:var(--mut);line-height:1.5;margin-bottom:1.1rem}
+.inp-lbl{display:block;font-size:.68rem;font-weight:800;text-transform:uppercase;
+         letter-spacing:1px;margin-bottom:.35rem;color:var(--c)}
+.inp{width:100%;background:rgba(0,0,0,.45);border:1.5px solid rgba(6,182,212,.22);
+     padding:.75rem 1rem;border-radius:12px;color:var(--txt);font-family:var(--fnt);
+     font-size:.88rem;outline:none;transition:border-color .25s,box-shadow .25s;margin-bottom:1.1rem}
+.inp:focus{border-color:var(--c);box-shadow:0 0 18px rgba(6,182,212,.22)}
+.pilot-badge{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+             border-radius:12px;padding:.75rem 1rem;margin-bottom:1.1rem}
+.pilot-badge strong{display:block;font-size:.65rem;color:var(--g);margin-bottom:.25rem}
+.pilot-badge span{font-size:.68rem;color:var(--mut);line-height:1.4}
+.btn-launch{width:100%;display:flex;align-items:center;justify-content:center;gap:.55rem;
+            background:linear-gradient(135deg,#06b6d4,#0284c7);
+            color:#fff;border:none;border-radius:14px;padding:.95rem;
+            font-family:var(--fnt);font-size:.88rem;font-weight:800;
+            text-transform:uppercase;letter-spacing:.5px;cursor:pointer;
+            transition:transform .2s,box-shadow .2s;animation:pulseCyan 2s infinite}
+.btn-launch:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(6,182,212,.38);animation:none}
+
+/* ──────────────────────────────────────────────────────
+   TEAM SECTION
+────────────────────────────────────────────────────── */
+.team-section{padding:1rem 1.25rem 2.5rem}
+.sec-hdr{font-size:.95rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;
+         display:flex;align-items:center;gap:.55rem;padding-bottom:.6rem;
+         border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:1.4rem}
+.team-grid{max-width:1160px;margin:0 auto;
+           display:grid;gap:1.1rem;grid-template-columns:1fr}
+@media(min-width:540px){.team-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:980px){.team-grid{grid-template-columns:repeat(4,1fr)}}
+
+.team-card{display:flex;flex-direction:column;border-radius:18px;overflow:hidden;
+           background:rgba(8,14,34,.80);border:1px solid rgba(255,255,255,.06);
+           transition:transform .25s,border-color .25s,box-shadow .25s}
+.team-card:hover{transform:translateY(-5px);border-color:rgba(6,182,212,.40);
+                  box-shadow:0 10px 35px rgba(6,182,212,.13)}
+
+/* Photo: full visible, no crop */
+.team-photo{position:relative;height:220px;overflow:hidden;
+            background:linear-gradient(135deg,#0d1a3a,#060c1e);
+            display:flex;align-items:center;justify-content:center}
+.team-photo img{max-width:100%;max-height:100%;width:100%;height:100%;
+                object-fit:contain;object-position:center top;
+                transition:transform .4s}
+.team-card:hover .team-photo img{transform:scale(1.04)}
+.photo-fade{position:absolute;bottom:0;left:0;right:0;height:55%;
+            background:linear-gradient(to top,rgba(2,5,16,.92) 0%,transparent 100%)}
+
+.team-info{padding:.9rem 1rem;flex:1;display:flex;flex-direction:column;gap:.3rem}
+.team-info h3{font-size:.78rem;font-weight:800;line-height:1.25}
+.team-info .role{font-size:.66rem;color:var(--c);font-weight:600}
+.team-school{font-size:.6rem;color:var(--mut);display:flex;align-items:center;gap:.3rem;
+             margin-top:auto;padding-top:.4rem;border-top:1px solid rgba(255,255,255,.05)}
+
+/* ──────────────────────────────────────────────────────
+   CURRICULUM SECTION
+────────────────────────────────────────────────────── */
+.curr-section{padding:0 1.25rem 3rem}
+.curr-wrap{max-width:1160px;margin:0 auto}
+.acc-btn{width:100%;display:flex;align-items:center;justify-content:space-between;
+         background:rgba(6,182,212,.06);border:1px solid rgba(6,182,212,.22);
+         border-radius:16px;padding:.95rem 1.4rem;cursor:pointer;
+         color:var(--txt);font-family:var(--fnt);font-size:.83rem;font-weight:700;
+         transition:background .25s}
+.acc-btn:hover,.acc-btn.open{background:rgba(6,182,212,.12)}
+.acc-btn.open{border-radius:16px 16px 0 0}
+.acc-icon{transition:transform .3s}
+.acc-btn.open .acc-icon{transform:rotate(180deg)}
+.acc-body{border:1px solid rgba(6,182,212,.22);border-top:none;
+          border-radius:0 0 16px 16px;padding:1.75rem;display:none}
+.acc-body.open{display:block}
+
+.curr-grid{display:grid;gap:1rem;grid-template-columns:1fr}
+@media(min-width:680px){.curr-grid{grid-template-columns:1fr 1fr}}
+
+.curr-blk{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);
+          border-radius:14px;padding:1rem 1.1rem}
+.curr-blk h4{font-size:.67rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;
+             margin-bottom:.75rem;display:flex;align-items:center;gap:.35rem}
+.curr-blk ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.curr-blk li{font-size:.72rem;color:#cbd5e1;line-height:1.45;
+             display:flex;gap:.45rem;align-items:flex-start}
+.curr-blk li i{flex-shrink:0;margin-top:.15rem}
+.curr-full{grid-column:1/-1}
+
+/* Competencies table */
+.comp-tbl{width:100%;border-collapse:collapse;font-size:.71rem}
+.comp-tbl thead tr{background:rgba(6,182,212,.10)}
+.comp-tbl th{padding:.55rem .9rem;text-align:left;color:var(--c);font-size:.62rem;
+             font-weight:800;text-transform:uppercase;border-bottom:1px solid rgba(6,182,212,.2)}
+.comp-tbl td{padding:.7rem .9rem;vertical-align:top;border-bottom:1px solid rgba(255,255,255,.05)}
+.comp-tbl td:first-child{color:var(--txt);font-weight:700;width:30%}
+.comp-tbl td:last-child{color:#cbd5e1;line-height:1.55}
+.comp-tbl tr:nth-child(even){background:rgba(255,255,255,.02)}
+
+/* Indicadores de Logro */
+.logro-grid{display:grid;gap:.65rem;grid-template-columns:1fr}
+@media(min-width:600px){.logro-grid{grid-template-columns:1fr 1fr}}
+.logro-card{background:rgba(6,182,212,.04);border:1px solid rgba(6,182,212,.18);
+            border-radius:12px;padding:.85rem 1rem;display:flex;gap:.6rem;align-items:flex-start}
+.logro-num{min-width:24px;height:24px;background:rgba(6,182,212,.15);border-radius:50%;
+           display:flex;align-items:center;justify-content:center;
+           font-size:.6rem;font-weight:800;color:var(--c);flex-shrink:0;margin-top:.05rem}
+.logro-txt{font-size:.72rem;color:#cbd5e1;line-height:1.5}
+
+/* Relevance box */
+.rel-box{background:linear-gradient(135deg,rgba(6,182,212,.06),rgba(234,179,8,.04));
+         border:1px solid rgba(6,182,212,.18);border-radius:14px;
+         padding:1.1rem 1.3rem;margin-top:1.4rem}
+.rel-box h4{font-size:.75rem;font-weight:800;text-transform:uppercase;color:var(--g);
+            margin-bottom:.55rem;display:flex;align-items:center;gap:.35rem}
+.rel-box p{font-size:.76rem;color:#cbd5e1;line-height:1.65}
+
+/* ──────────────────────────────────────────────────────
+   FOOTER
+────────────────────────────────────────────────────── */
+footer{text-align:center;padding:1.75rem 1.25rem;
+       border-top:1px solid rgba(255,255,255,.05);
+       font-size:.65rem;color:var(--mut)}
+
+/* ──────────────────────────────────────────────────────
+   TRANSITION CLASSES
+────────────────────────────────────────────────────── */
+.fade-out{opacity:0!important;pointer-events:none;transition:opacity .6s}
+.fade-in{animation:fadeUp .6s ease both}
+
+/* Avatar selector */
+.av-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;margin-bottom:1rem}
+.av-card{background:rgba(0,0,0,.38);border:1.5px solid rgba(255,255,255,.07);
+         border-radius:12px;padding:.6rem .35rem;cursor:pointer;text-align:center;
+         display:flex;flex-direction:column;align-items:center;gap:.18rem;
+         transition:all .2s;-webkit-user-select:none;user-select:none}
+.av-card:hover{border-color:rgba(6,182,212,.35);background:rgba(6,182,212,.06);
+               transform:translateY(-2px)}
+.av-card.selected{border-color:var(--c);background:rgba(6,182,212,.12);
+                  box-shadow:0 0 14px rgba(6,182,212,.30)}
+.av-em{font-size:1.95rem;line-height:1.1}
+.av-nm{font-size:.56rem;font-weight:800;text-transform:uppercase;color:var(--txt)}
+.av-gn{font-size:.5rem;color:var(--mut)}
+
+/* Landing cinematic */
+.land-ov{position:fixed;inset:0;z-index:800;
+         display:flex;align-items:center;justify-content:center;flex-direction:column;
+         pointer-events:none;opacity:0;transition:opacity .35s;overflow:hidden;
+         background:rgba(2,5,18,.92)}
+.land-ov.active{opacity:1;pointer-events:auto}
+#land-planet-orb{position:absolute;bottom:-140vw;left:50%;transform:translateX(-50%);
+                 width:240vw;height:240vw;border-radius:50%;filter:blur(2px);
+                 transition:bottom 3s cubic-bezier(.22,1,.36,1);opacity:.65}
+.land-ov.active #land-planet-orb{bottom:-155vw}
+.land-ship-area{position:relative;z-index:2;text-align:center;
+                animation:shipDescend 1.6s cubic-bezier(.22,1,.36,1) both}
+@keyframes shipDescend{from{transform:translateY(-55px) scale(.85);opacity:0}
+                        to  {transform:translateY(0)    scale(1);    opacity:1}}
+.land-ship-em{font-size:4.5rem;display:block;
+              animation:landBob 1.8s ease-in-out infinite}
+@keyframes landBob{0%,100%{transform:translateY(0) rotate(-3deg)}
+                    50%{transform:translateY(-12px) rotate(3deg)}}
+.land-av-em{font-size:2.2rem;display:block;margin-top:-.2rem}
+.land-pname{position:relative;z-index:2;font-size:clamp(2rem,6vw,3.2rem);
+            font-weight:900;text-transform:uppercase;letter-spacing:-1.5px;
+            margin-top:.85rem;animation:fadeUp .7s .3s ease both}
+.land-pfact{position:relative;z-index:2;font-size:.82rem;
+            color:rgba(255,255,255,.72);max-width:400px;text-align:center;
+            line-height:1.55;margin-top:.5rem;animation:fadeUp .7s .6s ease both}
+.land-prog-wrap{position:relative;z-index:2;width:240px;height:3px;
+                background:rgba(255,255,255,.08);border-radius:10px;overflow:hidden;
+                margin-top:1.8rem;animation:fadeUp .5s .9s ease both}
+.land-prog-fill{height:100%;width:0%;border-radius:10px;
+                background:linear-gradient(90deg,var(--c),var(--grn))}
+.land-dismiss{position:relative;z-index:2;margin-top:1rem;
+              background:transparent;border:1px solid rgba(255,255,255,.15);
+              color:rgba(255,255,255,.5);border-radius:100px;padding:.28rem .85rem;
+              font-family:var(--fnt);font-size:.6rem;cursor:pointer;
+              animation:fadeUp .5s 1.2s ease both}
+
+/* Fundamentos Metaverso & Gamificación */
+.fundamentos-section{padding:3rem 1.25rem 2rem}
+.fundamentos-grid{display:grid;gap:1.25rem;grid-template-columns:1fr}
+@media(min-width:768px){.fundamentos-grid{grid-template-columns:repeat(3,1fr)}}
+.fund-card{padding:1.6rem;display:flex;flex-direction:column;gap:.75rem;border-color:rgba(6,182,212,.15)}
+.fund-card:hover{transform:translateY(-3px);border-color:var(--c);box-shadow:0 8px 24px rgba(6,182,212,.12)}
+.fund-icon{font-size:2.2rem;color:var(--c);text-shadow:0 0 10px rgba(6,182,212,.4);margin-bottom:.2rem}
+.fund-card h3{font-size:.9rem;font-weight:800;text-transform:uppercase;color:var(--g);letter-spacing:.5px}
+.fund-card p{font-size:.73rem;color:#cbd5e1;line-height:1.65}
+
+/* Banner superior de misión */
+.mission-banner{position:absolute;top:4.6rem;left:50%;transform:translateX(-50%);
+                 z-index:9;text-align:center;pointer-events:none;
+                 background:rgba(8,14,32,0.85);backdrop-filter:blur(12px);
+                 border:1px solid rgba(6,182,212,0.22);border-radius:12px;
+                 padding:0.42rem 1.6rem;box-shadow:0 0 16px rgba(6,182,212,0.20)}
+.mission-banner h2{font-size:0.78rem;font-weight:900;text-transform:uppercase;
+                   color:var(--c);letter-spacing:1px;text-shadow:0 0 8px rgba(6,182,212,0.35)}
+.mission-banner p{font-size:0.52rem;color:var(--mut);text-transform:uppercase;
+                   font-weight:800;letter-spacing:0.5px;margin-top:0.04rem}
+@media(max-width:920px){
+  .mission-banner{
+    top: auto;
+    bottom: 5.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.25rem 0.8rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 280px;
+  }
+  .mission-banner h2{ font-size: 0.65rem; }
+  .mission-banner p{ font-size: 0.44rem; }
+}
+
+/* ──────────────────────────────────────────────────────
+   METAVERSE PAGE
+────────────────────────────────────────────────────── */
+.mv-page{width:100%;height:100vh;position:relative;display:none;overflow:hidden}
+#canvas-container{position:absolute;inset:0;z-index:1}
+#hover-label{position:fixed;z-index:999;background:rgba(2,6,23,.95);
+             border:1.5px solid var(--c);box-shadow:0 0 12px rgba(6,182,212,.3);
+             color:#fff;padding:.32rem .7rem;border-radius:8px;
+             font-size:.7rem;font-weight:700;pointer-events:none;display:none;text-transform:uppercase}
+
+/* HUD top */
+.hud-top{position:absolute;top:1.1rem;left:1.1rem;right:1.1rem;z-index:10;
+         pointer-events:none;display:flex;flex-direction:column;gap:.65rem}
+@media(min-width:768px){.hud-top{flex-direction:row;justify-content:space-between;align-items:flex-start}}
+.hud-glass{pointer-events:auto;background:rgba(8,14,32,.75);backdrop-filter:blur(14px);
+           border:1px solid rgba(6,182,212,.18);border-radius:100px;
+           padding:.45rem 1rem;display:flex;align-items:center;gap:.65rem}
+.hud-glass.rect{border-radius:16px}
+.pilot-em{font-size:1.65rem}
+.pilot-st h3{font-size:.72rem;font-weight:800}
+.pilot-st p{font-size:.58rem;color:var(--c);font-weight:700;text-transform:uppercase}
+.xp-box{background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.08);
+        padding:.28rem .7rem;border-radius:100px;display:flex;gap:.28rem;align-items:center}
+.xp-lbl{font-size:.56rem;color:var(--mut);font-weight:700}
+.xp-val{font-size:.76rem;color:var(--g);font-weight:800}
+.nav-btns{pointer-events:auto;display:flex;gap:.3rem;flex-wrap:wrap}
+.hud-btn{background:rgba(8,14,32,.75);backdrop-filter:blur(10px);
+         border:1px solid rgba(6,182,212,.18);color:#fff;height:36px;border-radius:100px;
+         padding:0 .85rem;cursor:pointer;font-family:var(--fnt);
+         font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;
+         display:flex;align-items:center;gap:.35rem;transition:background .2s,box-shadow .2s}
+.hud-btn:hover{background:rgba(6,182,212,.18);box-shadow:0 0 10px rgba(6,182,212,.3)}
+.hud-btn.ico{padding:0;width:36px;justify-content:center}
+.hud-btn.danger:hover{background:rgba(239,68,68,.18);box-shadow:0 0 10px rgba(239,68,68,.3);
+                       border-color:rgba(239,68,68,.3)}
+
+/* Badges panel */
+.badges-panel{pointer-events:auto;background:rgba(8,14,32,.75);backdrop-filter:blur(14px);
+              border:1px solid rgba(6,182,212,.18);border-radius:16px;
+              padding:.55rem .9rem;display:flex;flex-direction:column;gap:.28rem;
+              max-width:285px;width:100%}
+.bdg-hdr{display:flex;justify-content:space-between;align-items:center}
+.bdg-hdr h4{font-size:.58rem;font-weight:800;text-transform:uppercase;color:var(--mut)}
+.bdg-hdr span{font-size:.58rem;font-weight:800;color:var(--grn)}
+.prog-wrap{width:100%;height:4px;background:rgba(255,255,255,.08);border-radius:10px;overflow:hidden}
+.prog-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--c),var(--grn));transition:width .4s}
+.badge-slots{display:grid;grid-template-columns:repeat(6,1fr);gap:.28rem;margin-top:.15rem}
+.badge-slot{aspect-ratio:1;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.06);
+            border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.badge-slot.earned{border-color:rgba(234,179,8,.4);background:rgba(234,179,8,.08)}
+#final-reward-box{display:none;margin-top:.35rem}
+.btn-reward{background:linear-gradient(135deg,var(--g),#d97706);border:none;
+            color:#0f172a;border-radius:100px;padding:.3rem .9rem;
+            font-family:var(--fnt);font-weight:800;font-size:.62rem;
+            text-transform:uppercase;cursor:pointer;box-shadow:0 0 10px rgba(234,179,8,.4)}
+
+/* Sidebar */
+.sidebar{position:absolute;top:5rem;right:-420px;bottom:5rem;
+         width:355px;z-index:10;
+         background:rgba(8,14,32,.82);backdrop-filter:blur(20px);
+         border:1px solid rgba(6,182,212,.22);border-radius:20px;
+         padding:1.4rem;display:flex;flex-direction:column;overflow-y:auto;
+         transition:right .5s cubic-bezier(.16,1,.3,1)}
+.sidebar.active{right:1.1rem}
+.sid-close{position:absolute;top:.6rem;right:.6rem;background:transparent;
+           border:none;color:var(--mut);cursor:pointer;font-size:.88rem}
+.sid-title{font-size:1.55rem;font-weight:900;text-transform:uppercase}
+.sid-tag{display:inline-block;background:rgba(255,255,255,.08);
+         border:1px solid rgba(255,255,255,.12);padding:.16rem .55rem;border-radius:100px;
+         font-size:.56rem;font-weight:700;text-transform:uppercase;color:var(--c);margin-top:.18rem}
+.sid-sub{font-size:.72rem;font-style:italic;color:var(--mut);margin-top:.3rem}
+.sid-body{font-size:.72rem;color:var(--txt);line-height:1.55;margin:.75rem 0 .9rem}
+.metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.9rem}
+.metric{background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.04);
+        padding:.55rem;border-radius:10px}
+.metric .ml{font-size:.53rem;color:var(--mut);text-transform:uppercase;font-weight:700}
+.metric .mv{font-size:.73rem;font-weight:700;margin-top:.08rem}
+.facts-ttl{font-size:.63rem;font-weight:800;text-transform:uppercase;color:var(--g);margin-bottom:.45rem}
+.facts-list{list-style:none;display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.1rem}
+.facts-list li{display:flex;gap:.4rem;font-size:.68rem;color:var(--mut);line-height:1.35}
+.btn-mission{width:100%;margin-top:auto;
+             background:linear-gradient(135deg,var(--c),#0284c7);
+             border:none;color:#fff;border-radius:12px;padding:.75rem;
+             font-family:var(--fnt);font-weight:800;font-size:.73rem;
+             text-transform:uppercase;cursor:pointer;
+             display:flex;align-items:center;justify-content:center;gap:.42rem}
+.btn-mission.completed{background:rgba(16,185,129,.12);border:1px solid var(--grn);
+                       color:var(--grn);cursor:default}
+.pulse-btn{animation:pulseCyan 2s infinite}
+
+/* Tour HUD */
+.tour-hud{position:absolute;bottom:1.3rem;left:50%;
+          transform:translateX(-50%) translateY(120px);z-index:10;
+          width:90%;max-width:510px;background:rgba(8,14,32,.82);backdrop-filter:blur(14px);
+          border:1.5px solid rgba(6,182,212,.38);border-radius:18px;
+          padding:.75rem 1.4rem;display:flex;align-items:center;gap:1.1rem;
+          box-shadow:0 0 20px rgba(6,182,212,.12);
+          transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.tour-hud.active{transform:translateX(-50%) translateY(0)}
+.tour-lbl{font-size:.58rem;font-weight:800;color:var(--c);text-transform:uppercase}
+.tour-ttl{font-size:1rem;font-weight:900;text-transform:uppercase}
+.tour-cnt{font-size:.58rem;color:var(--mut);font-weight:700;text-transform:uppercase}
+.tour-btns{display:flex;gap:.35rem;margin-left:auto}
+.btn-tour{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+          color:#fff;padding:.42rem .85rem;border-radius:9px;
+          font-family:var(--fnt);font-size:.68rem;font-weight:700;
+          cursor:pointer;transition:all .2s}
+.btn-tour:disabled{opacity:.3;cursor:not-allowed}
+.btn-tour.nxt{background:linear-gradient(135deg,var(--c),#0284c7);border:none;font-weight:800}
+.btn-tour.nxt:hover{box-shadow:0 0 12px rgba(6,182,212,.4)}
+
+/* Tutorial box */
+.tut-box{position:absolute;top:7rem;left:50%;
+         transform:translateX(-50%) scale(.88);z-index:1002;
+         width:90%;max-width:450px;
+         background:rgba(8,14,32,.88);backdrop-filter:blur(18px);
+         border:2px solid var(--g);border-radius:18px;
+         padding:1.35rem 1.7rem;text-align:center;
+         box-shadow:0 0 28px rgba(234,179,8,.18);
+         opacity:0;pointer-events:none;transition:all .4s}
+.tut-box.active{transform:translateX(-50%) scale(1);opacity:1;pointer-events:auto}
+.tut-box h4{font-size:.77rem;font-weight:800;color:var(--g);text-transform:uppercase;margin-bottom:.6rem}
+.tut-box p{font-size:.74rem;color:#cbd5e1;line-height:1.5}
+.tut-btns{display:flex;justify-content:center;gap:.6rem;margin-top:1rem}
+.btn-tut{padding:.38rem .85rem;border-radius:8px;font-family:var(--fnt);
+         font-size:.68rem;font-weight:700;cursor:pointer}
+.btn-tut.nxt{background:var(--g);color:#0f172a;border:none;font-weight:800}
+.btn-tut.skip{background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--mut)}
+
+/* Avatar helper */
+.helper{position:absolute;bottom:1.1rem;left:1.1rem;z-index:10;
+        display:flex;align-items:flex-end;gap:.65rem;pointer-events:none;
+        max-width:370px;animation:float 4s ease-in-out infinite}
+
+.helper-av{pointer-events:auto;width:48px;height:48px;border-radius:14px;
+           display:flex;align-items:center;justify-content:center;font-size:1.9rem;
+           background:rgba(8,14,32,.82);backdrop-filter:blur(12px);
+           border:1.5px solid var(--c);box-shadow:0 0 12px rgba(6,182,212,.25);flex-shrink:0}
+.helper-bubble{pointer-events:auto;background:rgba(8,14,32,.82);backdrop-filter:blur(12px);
+               border:1px solid rgba(6,182,212,.20);border-radius:16px 16px 16px 4px;
+               padding:.6rem .95rem;min-height:38px;display:flex;align-items:center;
+               border-left:3px solid var(--c)}
+.helper-bubble p{font-size:.7rem;color:var(--txt);line-height:1.4;font-weight:500}
+
+/* Trivia overlay */
+.trivia-ov{position:fixed;inset:0;background:rgba(2,5,16,.85);backdrop-filter:blur(15px);
+           z-index:999;display:flex;align-items:center;justify-content:center;
+           padding:1rem;opacity:0;pointer-events:none;transition:opacity .3s}
+.trivia-ov.active{opacity:1;pointer-events:auto}
+.trivia-card{width:100%;max-width:420px;padding:1.3rem 1.6rem;position:relative;
+             background:rgba(8,14,32,.92);backdrop-filter:blur(20px);
+             border:2px solid rgba(6,182,212,.4);border-radius:22px;
+             box-shadow:0 0 32px rgba(6,182,212,.18);text-align:center;
+             transition:border-color .3s,box-shadow .3s}
+.trivia-card.emergency-flash{border-color:#ef4444!important;
+                              animation:emergencyGlow 1s infinite alternate}
+.trivia-card h3{font-size:0.86rem;font-weight:800;color:var(--c);text-transform:uppercase;margin-bottom:.5rem;letter-spacing:0.5px}
+.trivia-q{font-size:.78rem;font-weight:600;line-height:1.45;margin-bottom:0.95rem;color:#cbd5e1;text-shadow:0 1px 2px rgba(0,0,0,0.4)}
+.trivia-opts{display:flex;flex-direction:column;gap:.4rem;margin-bottom:.65rem}
+
+.trivia-opt-btn {
+    width: 100%;
+    padding: 0.65rem 0.95rem;
+    background: rgba(13, 22, 48, 0.72);
+    border: 1px solid rgba(6, 182, 212, 0.22);
+    color: #f1f5f9;
+    border-radius: 12px;
+    font-family: var(--fnt);
+    font-size: 0.74rem;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.05);
+}
+.trivia-opt-btn:hover:not(:disabled) {
+    background: rgba(6, 182, 212, 0.16);
+    border-color: var(--c);
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.25);
+    transform: translateY(-1px);
+}
+.trivia-opt-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+.trivia-opt-badge {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--c);
+    font-size: 0.62rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    flex-shrink: 0;
+}
+
+.trivia-hint{background:rgba(234,179,8,.05);border:1px solid rgba(234,179,8,.2);
+             padding:.65rem .85rem;border-radius:10px;text-align:left;display:none;margin-bottom:.75rem}
+.trivia-hint strong{color:var(--g);font-size:.63rem;text-transform:uppercase;display:block}
+.trivia-hint p{font-size:.66rem;color:var(--mut);margin-top:.08rem;line-height:1.4}
+#trivia-result-msg{font-size:.8rem;font-weight:700}
+
+/* Animación Holograma de Reparación */
+.repair-hologram {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  margin: 1.1rem auto;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+  border: 1px dashed rgba(16, 185, 129, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: hologramSpin 12s linear infinite;
+}
+@keyframes hologramSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.repair-ship-icon {
+  font-size: 3.2rem;
+  animation: hologramBob 1.8s ease-in-out infinite alternate;
+}
+@keyframes hologramBob {
+  from { transform: translateY(-4px) scale(1); filter: drop-shadow(0 0 4px rgba(16, 185, 129, 0.6)); }
+  to { transform: translateY(6px) scale(1.04); filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.85)); }
+}
+.repair-laser {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(16, 185, 129, 0.7);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.8);
+  animation: laserScan 1.6s ease-in-out infinite alternate;
+}
+@keyframes laserScan {
+  from { top: 15%; }
+  to { top: 85%; }
+}
+.repair-spark {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #34d399;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #34d399, 0 0 15px #059669;
+  animation: sparkFlash 0.25s ease-in-out infinite alternate;
+}
+@keyframes sparkFlash {
+  0% { transform: scale(0.3); opacity: 0.2; }
+  100% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Consola de Diagnóstico */
+.repair-console {
+  background: rgba(0, 0, 0, 0.65);
+  border: 1.5px solid rgba(16, 185, 129, 0.25);
+  border-radius: 10px;
+  padding: 0.85rem;
+  text-align: left;
+  font-family: monospace;
+  font-size: 0.68rem;
+  height: 90px;
+  overflow-y: auto;
+  margin-bottom: 1.1rem;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.9);
+}
+.console-line {
+  margin-bottom: 0.25rem;
+  line-height: 1.35;
+  letter-spacing: 0.2px;
+  animation: consoleLineFade 0.4s ease-in both;
+}
+@keyframes consoleLineFade {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Barra de progreso de reparación */
+.repair-prog-bar {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.repair-prog-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #34d399);
+  border-radius: 10px;
+  transition: width 0.1s linear;
+}
+.repair-prog-pct {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #34d399;
+  margin-top: 0.35rem;
+  text-shadow: 0 0 5px rgba(52, 211, 153, 0.4);
+}
+
+/* Badge & cert overlays */
+
+.modal-ov{position:fixed;inset:0;background:rgba(2,5,16,.95);backdrop-filter:blur(18px);
+          z-index:1000;display:flex;align-items:center;justify-content:center;
+          padding:1rem;opacity:0;pointer-events:none;transition:opacity .4s}
+.modal-ov.active{opacity:1;pointer-events:auto}
+.badge-card{text-align:center;padding:2.2rem;max-width:370px;width:100%;
+            background:rgba(8,14,32,.92);backdrop-filter:blur(20px);
+            border:2px solid rgba(234,179,8,.3);border-radius:22px;
+            box-shadow:0 0 38px rgba(234,179,8,.15);
+            transform:scale(.9);transition:transform .4s cubic-bezier(.175,.885,.32,1.275)}
+.modal-ov.active .badge-card{transform:scale(1)}
+.badge-shimmer{width:95px;height:95px;border-radius:50%;
+               background:radial-gradient(circle,rgba(234,179,8,.2) 0%,transparent 70%);
+               margin:0 auto .9rem;display:flex;align-items:center;justify-content:center;
+               font-size:3.3rem;animation:float 3s ease-in-out infinite}
+.badge-card h2{font-size:.76rem;font-weight:800;color:var(--g);text-transform:uppercase}
+.badge-card h3{font-size:1.45rem;font-weight:900;margin:.18rem 0 .65rem}
+.badge-card p{font-size:.73rem;color:var(--mut);line-height:1.4;margin-bottom:1.4rem}
+.btn-cont{width:100%;display:flex;align-items:center;justify-content:center;gap:.5rem;
+          background:linear-gradient(135deg,var(--c),#0284c7);color:#fff;border:none;
+          border-radius:12px;padding:.75rem;font-family:var(--fnt);font-size:.82rem;
+          font-weight:800;text-transform:uppercase;cursor:pointer}
+/* Cert */
+.cert-box{width:100%;max-width:740px;display:flex;flex-direction:column;align-items:center;gap:1rem}
+.cert-wrap{width:100%;border-radius:14px;overflow:hidden;
+           border:2px solid rgba(255,255,255,.07);box-shadow:0 15px 45px rgba(0,0,0,.5);aspect-ratio:4/3}
+#certificate-canvas{width:100%;height:100%;display:block;background:#000}
+.cert-acts{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
+.btn-cert{background:linear-gradient(135deg,var(--g),#d97706);color:#0f172a;border:none;
+          border-radius:12px;padding:.65rem 1.3rem;font-family:var(--fnt);
+          font-size:.76rem;font-weight:800;text-transform:uppercase;cursor:pointer;
+          display:flex;align-items:center;gap:.42rem;transition:transform .2s,box-shadow .2s}
+.btn-cert:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(234,179,8,.3)}
+.btn-cert.sec{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff}
+.btn-cert.sec:hover{background:rgba(255,255,255,.15);box-shadow:none}
+/* Confetti */
+.confetti-particle{position:absolute;border-radius:2px;pointer-events:none;
+                   animation:confettiFall linear forwards}
+    </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════
+     LANDING PAGE
+════════════════════════════════════════════════════════════ -->
+<div id="landing-page" class="z1" style="transition:opacity .6s; position:relative;">
+
+  <!-- Botón Engranaje del Maestro (Login Admin) -->
+  <button id="btn-admin-gear" title="Acceso del Maestro" style="position: absolute; top: 1rem; right: 1rem; background: rgba(8,14,32,0.7); backdrop-filter: blur(12px); border: 1.5px solid rgba(239, 68, 68, 0.45); color: #fca5a5; width: 42px; height: 42px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: all 0.3s; z-index: 100; box-shadow: 0 0 15px rgba(239, 68, 68, 0.18);">
+    <i class="fas fa-cog"></i>
+  </button>
+
+  <!-- TOP BAND -->
+  <div class="top-band">
+    <div class="top-band-in">
+      <div class="logo-row">
+        <img src="images/Logo.png" alt="Logo Regional 12" onerror="this.style.display='none'">
+        <div class="logo-txt">
+          <h1>Regional 12 de Educación · Higüey</h1>
+          <p>Maestría en Tecnología Educativa y Entornos Virtuales</p>
+        </div>
+      </div>
+      <div class="tag-row">
+        <span class="tag tag-c"><i class="fas fa-flask"></i> Ciencias de la Naturaleza</span>
+        <span class="tag tag-g"><i class="fas fa-graduation-cap"></i> 4to Grado Primaria (Edad: ~9 años)</span>
+        <span class="tag tag-p"><i class="fas fa-gamepad"></i> Gamificación · Metaverso</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero z1">
+    <div class="hero-grid">
+
+      <!-- LEFT -->
+      <div class="hero-left au">
+        <div class="hero-eyebrow"><i class="fas fa-rocket"></i> Proyecto Final · Grupo 3</div>
+        <h2 class="hero-title">Misión<br>Cosmos</h2>
+        <p class="hero-sub">
+          Un metaverso educativo tridimensional diseñado para niños y niñas de ~9 años (4to de Primaria) donde viajan en una nave espacial,
+          resuelven emergencias técnicas aplicando conocimientos de Ciencias de la Naturaleza y obtienen insignias
+          de honor al superar cada misión del Sistema Solar.
+        </p>
+
+        <div class="meta-grid">
+          <div class="meta-card">
+            <div class="lbl"><i class="fas fa-book-open"></i> Área</div>
+            <div class="val">Ciencias de la Naturaleza</div>
+          </div>
+          <div class="meta-card">
+            <div class="lbl"><i class="fas fa-chalkboard-teacher"></i> Facilitadora</div>
+            <div class="val">Mtra. Amarilis Camarena</div>
+          </div>
+          <div class="meta-card">
+            <div class="lbl"><i class="fas fa-layer-group"></i> Nivel y Grado</div>
+            <div class="val">Nivel Primario · Segundo Ciclo · 4to Grado</div>
+          </div>
+          <div class="meta-card">
+            <div class="lbl"><i class="fas fa-satellite"></i> Tema Central</div>
+            <div class="val">El Sistema Solar – Viaje Inmersivo por el Cosmos</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Launch Card -->
+      <div class="launch-card glass au d2">
+        <h3><i class="fas fa-id-badge"></i> Registro de Cadete</h3>
+        <p>Elige tu personaje, escribe tu nombre y despega al metaverso del Sistema Solar.</p>
+
+        <label class="inp-lbl">Elige tu Avatar</label>
+        <div class="av-grid" id="avatar-grid">
+          <div class="av-card selected" data-av="astro_boy" role="button" tabindex="0">
+            <span class="av-em">&#x1F466;</span>
+            <span class="av-nm">Estudiante A</span>
+            <span class="av-gn">Edad: 9 a&#241;os</span>
+          </div>
+          <div class="av-card" data-av="astro_girl" role="button" tabindex="0">
+            <span class="av-em">&#x1F467;</span>
+            <span class="av-nm">Estudiante B</span>
+            <span class="av-gn">Edad: 9 a&#241;os</span>
+          </div>
+          <div class="av-card" data-av="scientist_m" role="button" tabindex="0">
+            <span class="av-em">&#x1F9D1;&#x200D;&#x1F680;</span>
+            <span class="av-nm">Astronauta A</span>
+            <span class="av-gn">Edad: 9 a&#241;os</span>
+          </div>
+          <div class="av-card" data-av="scientist_f" role="button" tabindex="0">
+            <span class="av-em">&#x1F469;&#x200D;&#x1F680;</span>
+            <span class="av-nm">Astronauta B</span>
+            <span class="av-gn">Edad: 9 a&#241;os</span>
+          </div>
+          <div class="av-card" data-av="robot" role="button" tabindex="0">
+            <span class="av-em">&#x1F9D1;&#x200D;&#x1F52C;</span>
+            <span class="av-nm">Cient&#237;fico</span>
+            <span class="av-gn">Edad: 9 a&#241;os</span>
+          </div>
+          <div class="av-card" data-av="alien" role="button" tabindex="0">
+            <span class="av-em">&#x1F469;&#x200D;&#x1F52C;</span>
+            <span class="av-nm">Cient&#237;fica</span>
+            <span class="av-gn">Edad: 9 a&#241;os</span>
+          </div>
+        </div>
+
+
+
+
+        <label for="student-name" class="inp-lbl">&#x1F6F8; Nombre del Piloto</label>
+        <input type="text" id="student-name" class="inp" placeholder="Escribe tu nombre aquí..." autocomplete="off">
+        <div class="pilot-badge">
+          <strong><span id="selected-avatar-preview">&#x1F468;&#x200D;&#x1F680;</span> Tu nave y misilón te esperan</strong>
+          <span>Tu misión: reparar la nave respondiendo correctamente en cada parada del Sistema Solar para volver sano a la Tierra.</span>
+        </div>
+        <button id="btn-start-game" class="btn-launch">
+          <i class="fas fa-rocket"></i> Despegar al Metaverso
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FUNDAMENTOS PEDAGÓGICOS -->
+  <section class="fundamentos-section z1">
+    <div class="wrap">
+      <p class="sec-hdr" style="color:var(--c)">
+        <i class="fas fa-project-diagram" style="color:var(--c)"></i>
+        Fundamentos Pedagógicos · ¿Por qué Metaverso y Gamificación?
+      </p>
+      <div class="fundamentos-grid">
+        <div class="fund-card glass">
+          <div class="fund-icon"><i class="fas fa-vr-cardboard"></i></div>
+          <h3>¿Por qué es un Metaverso?</h3>
+          <p>
+            Porque ofrece una simulación tridimensional interactiva y persistente del espacio basada en WebGL (Three.js). El estudiante no es un espectador pasivo: encarna un avatar dentro de una cabina física de pilotaje, manipula órbitas en tiempo real, realiza una "caminata espacial" virtual y experimenta entornos sonoros diferenciados para cada cuerpo celeste, facilitando la comprensión espacial y abstracta de la astronomía.
+          </p>
+        </div>
+        <div class="fund-card glass">
+          <div class="fund-icon"><i class="fas fa-gamepad"></i></div>
+          <h3>¿Por qué es Gamificación?</h3>
+          <p>
+            Porque utiliza mecánicas de juego estructuradas para el aprendizaje: el estudiante asume el rol crítico de un Cadete Espacial en una misión de rescate, gana puntos de experiencia (XP) resolviendo incidentes reales de Ciencias de la Naturaleza, desbloquea 11 insignias coleccionables de honor y recibe un certificado oficial al completar la misión. Esto transforma la evaluación en un desafío inmersivo y motivador.
+          </p>
+        </div>
+        <div class="fund-card glass">
+          <div class="fund-icon"><i class="fas fa-star"></i></div>
+          <h3>Relevancia del Proyecto</h3>
+          <p>
+            Este proyecto responde directamente a la adecuación curricular del MINERD para 4to grado de primaria. Integra el aprendizaje basado en problemas (ABP) y el uso de tecnologías de simulación para fomentar el pensamiento lógico, crítico e inquisitivo. Al contextualizar las preguntas del currículo como "fallas técnicas de soporte vital", el estudiante comprende la utilidad práctica de la ciencia y se sensibiliza sobre el cuidado de la Tierra como oasis de vida.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM SECTION -->
+  <section class="team-section z1">
+    <div class="wrap">
+      <p class="sec-hdr" style="color:var(--g)">
+        <i class="fas fa-users-cog" style="color:var(--g)"></i>
+        Equipo Diseñador · Grupo 3 · Ciencias de la Naturaleza
+      </p>
+      <div class="team-grid">
+
+        <!-- Dany -->
+        <div class="team-card au d1">
+          <div class="team-photo">
+            <img src="images/DANY.jpg" alt="Dany Trinidad Trinidad" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Dany+Trinidad&background=0d1630&color=06b6d4&size=256&bold=true'">
+            <div class="photo-fade"></div>
+          </div>
+          <div class="team-info">
+            <h3>Dany Trinidad Trinidad</h3>
+            <div class="role">Maestro – Grupo 3</div>
+            <div class="team-school"><i class="fas fa-school" style="color:var(--c)"></i> Escuela La Ceiba de Blandino</div>
+          </div>
+        </div>
+
+        <!-- Carolyn -->
+        <div class="team-card au d2">
+          <div class="team-photo">
+            <img src="images/Carolyn.jpg" alt="Carolyn Franchesca Cedeño Reyes" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Carolyn+Cedeno&background=0d1630&color=06b6d4&size=256&bold=true'">
+            <div class="photo-fade"></div>
+          </div>
+          <div class="team-info">
+            <h3>Carolyn Franchesca Cedeño Reyes</h3>
+            <div class="role">Maestra – Grupo 3</div>
+            <div class="team-school"><i class="fas fa-school" style="color:var(--c)"></i> Liceo Secundario Juan Pablo Duarte</div>
+          </div>
+        </div>
+
+        <!-- Moisés -->
+        <div class="team-card au d3">
+          <div class="team-photo">
+            <img src="images/Moises.jpg" alt="Moisés I. Encarnación García" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Moises+Encarnacion&background=0d1630&color=06b6d4&size=256&bold=true'">
+            <div class="photo-fade"></div>
+          </div>
+          <div class="team-info">
+            <h3>Moisés I. Encarnación García</h3>
+            <div class="role">Maestro – Grupo 3</div>
+            <div class="team-school"><i class="fas fa-school" style="color:var(--c)"></i> Liceo Juan Pablo Duarte</div>
+          </div>
+        </div>
+
+        <!-- María -->
+        <div class="team-card au d4">
+          <div class="team-photo">
+            <img src="images/maria.jpg" alt="María Altagracia de la Cruz Rosa" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Maria+de+la+Cruz&background=0d1630&color=06b6d4&size=256&bold=true'">
+            <div class="photo-fade"></div>
+          </div>
+          <div class="team-info">
+            <h3>María Altagracia de la Cruz Rosa</h3>
+            <div class="role">Maestra – Grupo 3</div>
+            <div class="team-school"><i class="fas fa-school" style="color:var(--c)"></i> Escuela El Bejucal</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM SECTION -->
+  <section class="curr-section z1">
+    <div class="curr-wrap">
+
+      <button class="acc-btn" id="acc-btn" aria-expanded="false">
+        <span><i class="fas fa-graduation-cap" style="color:var(--c);margin-right:.4rem"></i>
+          Planificación Curricular – Ciencias de la Naturaleza · 4to Grado</span>
+        <i class="fas fa-chevron-down acc-icon"></i>
+      </button>
+
+      <div class="acc-body" id="acc-body">
+
+        <!-- Propósito -->
+        <div style="background:linear-gradient(135deg,rgba(6,182,212,.07),rgba(234,179,8,.04));
+                    border:1px solid rgba(6,182,212,.18);border-radius:14px;padding:1.1rem 1.3rem;margin-bottom:1.4rem">
+          <h4 style="font-size:.7rem;font-weight:800;text-transform:uppercase;color:var(--c);margin-bottom:.45rem">
+            <i class="fas fa-bullseye"></i> Propósito del Proyecto
+          </h4>
+          <p style="font-size:.76rem;color:#cbd5e1;line-height:1.65">
+            Fomentar el aprendizaje interactivo, inmersivo y significativo de los componentes del Sistema Solar en
+            estudiantes de 4to grado, promoviendo el desarrollo de competencias científicas de Ciencias de la Naturaleza
+            mediante mecánicas de gamificación y entornos tridimensionales simulados (metaverso).
+          </p>
+        </div>
+
+        <!-- Competencias: tabla MINERD -->
+        <div class="curr-blk curr-full" style="margin-bottom:1.25rem">
+          <h4 style="color:var(--c)"><i class="fas fa-award"></i>
+            Malla Curricular – Ciencias de la Naturaleza · Nivel Primario – Segundo Ciclo · 4to Grado
+          </h4>
+          <div style="overflow-x:auto">
+            <table class="comp-tbl">
+              <thead>
+                <tr>
+                  <th>Competencias Fundamentales</th>
+                  <th>Competencias Específicas del Grado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Comunicativa</td>
+                  <td>Ofrece explicaciones científicas y tecnológicas a partir de analizar observaciones, medición,
+                      modelos y experimentación de fenómenos naturales fundamentales en ciencias de la vida, físicas,
+                      de la tierra y el universo.</td>
+                </tr>
+                <tr>
+                  <td>Pensamiento Lógico, Creativo y Crítico; Resolución de Problemas; Tecnológica y Científica</td>
+                  <td>Aplica organizados y lógicos procedimientos científicos y tecnológicos mientras explora o
+                      experimenta, simula o construye, haciéndose consciente de sus cuestionamientos e inferencias
+                      a partir de la observación y medición guiada.</td>
+                </tr>
+                <tr>
+                  <td>Ética y Ciudadana; Desarrollo Personal y Espiritual; Ambiental y de la Salud</td>
+                  <td>Asume una actitud preventiva, creativa, curiosa, colaborativa y responsable en armonía con
+                      su entorno y como parte de los seres vivos, tomando acciones proactivas en atención a su
+                      bienestar y uso sostenible de los recursos.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Indicadores de Logro (Extracto Oficial del Currículo de 4to Grado - Ciencias de la Naturaleza) -->
+        <div class="curr-blk curr-full" style="margin-bottom:1.25rem">
+          <h4 style="color:var(--grn)"><i class="fas fa-check-circle"></i> Indicadores de Logro Oficiales – Adecuación Curricular MINERD (4to Grado)</h4>
+          <div class="logro-grid">
+            <div class="logro-card"><div class="logro-num">1</div>
+              <div class="logro-txt">Comunica sus ideas e inferencias de las observaciones, exploraciones y experimentos, usando y cuidando los sentidos e instrumentos para percibir, recolectar y obtener datos e información de su entorno; mostrando y argumentando los resultados de su trabajo de forma organizada y creativa en proyecto individual y colectivo.</div></div>
+            <div class="logro-card"><div class="logro-num">2</div>
+              <div class="logro-txt">Usa diferentes vías de comunicación para explicar o dar soluciones de forma abierta y creativa a su manera de percibir las propiedades y características de la materia, propiedades de la luz, estructuras y mecanismo de máquinas, respetando las ideas y diferencias con las demás personas.</div></div>
+            <div class="logro-card"><div class="logro-num">3</div>
+              <div class="logro-txt">Asocia y construye modelos, estructuras y funciones de máquinas y mecanismo de transmisión de movimiento, objetos o juguetes, herramientas, sistema solar y tecnología de la comunicación de forma adecuada.</div></div>
+            <div class="logro-card"><div class="logro-num">4</div>
+              <div class="logro-txt">Describe o clasifica propiedades que caracterizan de sustancias, combinaciones y distintos tipos de mezclas; fenómenos simples comunes en los que ocurren: reflexión, refracción y difracción de la luz; la composición física del planeta Tierra, mostrando sus diferentes capas, mediante esquemas o maquetas; los sismos y el movimiento de la corteza terrestre.</div></div>
+            <div class="logro-card"><div class="logro-num">5</div>
+              <div class="logro-txt">Ejecuta experimentos guiados en colaboración; observando, describiendo, registrando y utilizando herramientas o equipos y siguiendo características y propiedades observables de seres vivos o ecosistema como las células vegetales y animales, así como también de objetos; de fenómenos naturales; de la luz; de las sustancias, combinaciones y las mezclas; de distintos movimientos de la Tierra y la Luna alrededor del Sol, incluyendo los eclipses; de la energía solar y los seres vivos; y de la obtención de fruto de forma adecuada.</div></div>
+            <div class="logro-card"><div class="logro-num">6</div>
+              <div class="logro-txt">Analiza y argumenta medidas sobre el uso sostenible de los recursos naturales, el cuidado del Medioambiente, y los diferentes problemas ambientales que afectan el desarrollo sostenible en la región y el país.</div></div>
+            <div class="logro-card"><div class="logro-num">7</div>
+              <div class="logro-txt">Identifica y aplica actitudes y valores proactivos en su desarrollo personal que incentiva como la imaginación, la curiosidad, la colaboración, la perseverancia, la innovación, la objetividad, la responsabilidad, la solidaridad, la creatividad, la adaptabilidad, la observación, interés por profesiones y actividades científicas y tecnológicas, y autogestionar sus emociones, preguntas y aprendizaje.</div></div>
+
+          </div>
+        </div>
+
+        <!-- Contenidos -->
+        <div class="curr-grid" style="margin-bottom:1.4rem">
+          <div class="curr-blk">
+            <h4 style="color:#ec4899"><i class="fas fa-brain"></i> Conceptos (¿Qué aprendemos?)</h4>
+            <ul>
+              <li><i class="fas fa-check" style="color:#ec4899"></i> Sistema Solar: Sol, planetas, satélites, cometas y asteroides.</li>
+              <li><i class="fas fa-check" style="color:#ec4899"></i> El Sol: estrella central y fuente de energía.</li>
+              <li><i class="fas fa-check" style="color:#ec4899"></i> Composición y características físicas de los planetas.</li>
+              <li><i class="fas fa-check" style="color:#ec4899"></i> Movimientos de traslación y rotación orbital.</li>
+              <li><i class="fas fa-check" style="color:#ec4899"></i> Fenómenos astronómicos: eclipses, fases de la Luna, nebulosas.</li>
+            </ul>
+          </div>
+          <div class="curr-blk">
+            <h4 style="color:var(--grn)"><i class="fas fa-cogs"></i> Procedimientos (¿Cómo lo hacemos?)</h4>
+            <ul>
+              <li><i class="fas fa-chevron-right" style="color:var(--grn)"></i> Observación, descripción y comparación de cuerpos celestes.</li>
+              <li><i class="fas fa-chevron-right" style="color:var(--grn)"></i> Análisis de trayectorias y movimientos planetarios.</li>
+              <li><i class="fas fa-chevron-right" style="color:var(--grn)"></i> Simulación interactiva 3D del espacio (caminata espacial).</li>
+              <li><i class="fas fa-chevron-right" style="color:var(--grn)"></i> Evaluación gamificada con trivias de emergencia de vuelo.</li>
+            </ul>
+          </div>
+          <div class="curr-blk">
+            <h4 style="color:var(--g)"><i class="fas fa-star"></i> Actitudes y Valores</h4>
+            <ul>
+              <li><i class="fas fa-star" style="color:var(--g)"></i> Curiosidad, interés y creatividad científica.</li>
+              <li><i class="fas fa-star" style="color:var(--g)"></i> Valoración del trabajo en equipo y la tecnología educativa.</li>
+              <li><i class="fas fa-star" style="color:var(--g)"></i> Perseverancia y entusiasmo ante los desafíos de aprendizaje.</li>
+              <li><i class="fas fa-star" style="color:var(--g)"></i> Responsabilidad ambiental y cuidado del planeta Tierra.</li>
+            </ul>
+          </div>
+          <div class="curr-blk">
+            <h4 style="color:var(--c)"><i class="fas fa-clipboard-check"></i> Criterios de Evaluación Oficiales (4to Grado)</h4>
+            <ul>
+              <li><i class="fas fa-clipboard-check" style="color:var(--c)"></i> 1. Utilización de lenguaje científico y tecnológico apropiado, mostrando comprensión de la información que comunica.</li>
+              <li><i class="fas fa-clipboard-check" style="color:var(--c)"></i> 2. Asociación adecuada de contenidos científicos y tecnológicos.</li>
+              <li><i class="fas fa-clipboard-check" style="color:var(--c)"></i> 3. Identificación y utilización adecuada de objetos, juegos, instrumentos, herramientas y técnicas según la tarea a realizar.</li>
+              <li><i class="fas fa-clipboard-check" style="color:var(--c)"></i> 4. Análisis de la elección y del procedimiento a seguir.</li>
+              <li><i class="fas fa-clipboard-check" style="color:var(--c)"></i> 5. Curiosidad, creatividad, perseverancia, colaboración, organización y finalización de la tarea.</li>
+              <li><i class="fas fa-clipboard-check" style="color:var(--c)"></i> 6. Actitudes y comportamientos adecuados para sí mismo y con los demás. Comprensión y cuidado del medioambiente, así como los recursos de bien común.</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Relevancia -->
+        <div class="rel-box" style="margin-top:1.5rem; background:rgba(6,182,212,0.06); border:1px solid rgba(6,182,212,0.2); padding:1.5rem; border-radius:16px;">
+          <h4 style="font-size:0.85rem; font-weight:800; text-transform:uppercase; color:var(--c); margin-bottom:0.6rem; display:flex; align-items:center; gap:0.5rem;">
+            <i class="fas fa-star text-yellow-400"></i> Relevancia y Características Pedagógicas
+          </h4>
+          <p style="font-size:0.76rem; color:#cbd5e1; line-height:1.65; margin-bottom:0.75rem;">
+            Este proyecto integra tecnologías de simulación 3D (Three.js / WebGL) con pedagogías activas basadas en aprendizaje por descubrimiento y resolución de problemas. Al posicionar al estudiante como un explorador de otro universo en misión de reconocimiento, se activan procesos de pensamiento de orden superior y se refuerzan las competencias de Ciencias de la Naturaleza del MINERD para 4to Grado de Primaria.
+          </p>
+          <ul style="list-style:none; padding:0; margin:0; display:grid; gap:0.6rem; font-size:0.72rem; color:#94a3b8;">
+            <li><i class="fas fa-rocket text-cyan-400" style="margin-right:6px;"></i> <strong>Viaje Interestelar Cinemático:</strong> Una introducción hiper-espacial de 10 segundos introduce de forma lúdica y estimulante al estudiante, preparando la atmósfera para los desafíos curriculares.</li>
+            <li><i class="fas fa-satellite text-cyan-400" style="margin-right:6px;"></i> <strong>Física y Composición Planetaria:</strong> Simulaciones reales de aproximación donde se distingue entre planetas rocosos (aterrizaje físico) y planetas gaseosos o con atmósferas hostiles como Venus (que requieren mantener una órbita segura a 460 °C para proteger la nave).</li>
+            <li><i class="fas fa-server text-cyan-400" style="margin-right:6px;"></i> <strong>Base de Datos del Backend:</strong> Toda la información de registro de los estudiantes, puntaje (XP) e insignias se almacena en el backend de Node.js, permitiendo al docente realizar un seguimiento administrativo seguro.</li>
+            <li><i class="fas fa-mobile-alt text-cyan-400" style="margin-right:6px;"></i> <strong>Diseño Responsivo Multiplataforma:</strong> Estructura web optimizada que escala de manera fluida y fluida en computadoras, tabletas y teléfonos móviles, garantizando equidad en el acceso tecnológico.</li>
+          </ul>
+        </div>
+
+      </div><!-- /acc-body -->
+    </div>
+  </section>
+
+
+
+  <footer class="z1">
+    <p>&copy; 2026 Grupo 3 · Maestría en Tecnología Educativa · Regional 12 de Higüey</p>
+    <p style="margin-top:.25rem">Ciencias de la Naturaleza · 4to Grado Primaria · Facilitadora: Mtra. Amarilis Camarena</p>
+  </footer>
+
+</div><!-- /landing-page -->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     METAVERSE PAGE
+════════════════════════════════════════════════════════════ -->
+<div id="metaverse-page" class="mv-page">
+
+  <div id="canvas-container"></div>
+  <div id="hover-label"></div>
+
+  <!-- Título Superior de la Misión (Visible en pantallas grandes) -->
+  <div class="mission-banner">
+    <h2>Misión Cosmos: Ciencias de la Naturaleza</h2>
+    <p>Viaje de Rescate por el Sistema Solar · 4to Grado</p>
+  </div>
+
+
+  <!-- HUD Top -->
+  <div class="hud-top">
+    <div class="hud-glass">
+      <button id="btn-return-home" class="hud-btn ico danger" title="Volver al Inicio">
+        <i class="fas fa-home"></i>
+      </button>
+      <div id="pilot-avatar-emoji" class="pilot-em">🚀</div>
+      <div class="pilot-st">
+        <h3 id="pilot-name-display">Piloto</h3>
+        <p  id="pilot-role-display">Cadete Espacial</p>
+      </div>
+      <div class="xp-box">
+        <span class="xp-lbl">XP</span>
+        <span id="pilot-score-display" class="xp-val">0</span>
+      </div>
+    </div>
+
+    <div class="nav-btns">
+      <button id="btn-open-guide"    class="hud-btn"><i class="fas fa-book-reader" style="color:var(--g)"></i> Guía de Vuelo</button>
+      <button id="btn-toggle-music"  class="hud-btn"><i class="fas fa-volume-up"></i> Sonido</button>
+      <button id="btn-toggle-orbits" class="hud-btn"><i class="fas fa-eye"></i> Órbitas</button>
+      <button id="btn-reset-cam"     class="hud-btn ico" title="Vista Global"><i class="fas fa-compress-arrows-alt"></i></button>
+    </div>
+
+    <div class="badges-panel hud-glass rect">
+      <div class="bdg-hdr">
+        <h4>Insignias</h4>
+        <span id="pilot-progress-percent">0%</span>
+      </div>
+      <div class="prog-wrap"><div id="pilot-progress-fill" class="prog-fill"></div></div>
+      <div id="pilot-badges-list" class="badge-slots"></div>
+      <div id="final-reward-box">
+        <span style="font-size:.6rem;font-weight:800;color:var(--grn);text-transform:uppercase">¡Misión Cumplida!</span><br>
+        <button id="btn-claim-cert" class="btn-reward"><i class="fas fa-graduation-cap"></i> Reclamar Diploma</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tour HUD -->
+  <div id="tour-hud-panel" class="tour-hud">
+    <div>
+      <div class="tour-lbl"><i class="fas fa-compass"></i> Campaña Espacial</div>
+      <div id="tour-stop-title" class="tour-ttl">El Sol</div>
+      <div id="tour-stop-count" class="tour-cnt">Parada 1 de 11</div>
+    </div>
+    <div class="tour-btns">
+      <button id="btn-prev-tour" class="btn-tour"><i class="fas fa-chevron-left"></i> Anterior</button>
+      <button id="btn-next-tour" class="btn-tour nxt">Siguiente <i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <!-- Tutorial Box -->
+  <div id="tutorial-hud-box" class="tut-box">
+    <h4><i class="fas fa-chalkboard-teacher"></i> Manual del Piloto</h4>
+    <p id="tutorial-speech-text">Configurando sistemas...</p>
+    <div class="tut-btns">
+      <button id="btn-skip-tutorial" class="btn-tut skip">Saltar Guía</button>
+      <button id="btn-next-tutorial" class="btn-tut nxt">Siguiente ➜</button>
+    </div>
+  </div>
+
+  <!-- Sidebar info -->
+  <aside id="planet-info-panel" class="sidebar">
+    <button id="btn-close-info" class="sid-close"><i class="fas fa-times"></i></button>
+    <div style="margin-top:.4rem;margin-bottom:.75rem">
+      <h2 id="info-title"    class="sid-title">Planeta</h2>
+      <span id="info-type"   class="sid-tag">Cuerpo Celeste</span>
+      <p    id="info-subtitle" class="sid-sub">—</p>
+    </div>
+    <div style="flex:1;overflow-y:auto;padding-right:.25rem">
+      <p id="info-desc" class="sid-body">Descripción</p>
+      <div class="metrics-grid">
+        <div class="metric"><div class="ml">Tamaño</div>       <div id="metric-size"     class="mv">—</div></div>
+        <div class="metric"><div class="ml">Temperatura</div>  <div id="metric-temp"     class="mv">—</div></div>
+        <div class="metric"><div class="ml">Gravedad</div>     <div id="metric-gravity"  class="mv">—</div></div>
+        <div class="metric"><div class="ml">Dist. al Sol</div> <div id="metric-distance" class="mv">—</div></div>
+      </div>
+      <div class="facts-ttl">¿Sabías qué?</div>
+      <ul id="info-facts-list" class="facts-list"></ul>
+    </div>
+    <button id="btn-start-mission" class="btn-mission pulse-btn">
+      <i class="fas fa-exclamation-triangle"></i> Resolver Falla
+    </button>
+  </aside>
+
+  <!-- Avatar helper -->
+  <div id="avatar-helper-container" class="helper">
+    <div id="helper-avatar-emoji" class="helper-av">🚀</div>
+    <div class="helper-bubble">
+      <p id="avatar-dialog-text">Capitán: haz clic en cualquier planeta para iniciar la misión.</p>
+    </div>
+  </div>
+
+</div><!-- /metaverse-page -->
+
+
+<!-- ════════════════════════════════════════════════════════════
+     MODALS
+════════════════════════════════════════════════════════════ -->
+
+<!-- Instrucciones Iniciales de la Misión -->
+<!-- Instrucciones Iniciales de la Misión -->
+<div id="instructions-overlay" class="trivia-ov">
+  <div class="trivia-card" style="max-width: 450px; border-color: var(--g); box-shadow: 0 0 35px rgba(234,179,8,0.22); text-align: left; padding: 1.6rem; margin: auto;">
+    <h3 style="color:var(--g); font-size:1.1rem; font-weight:900; letter-spacing:0.8px; text-transform:uppercase; margin-bottom:0.5rem; text-align: center; text-shadow: 0 0 10px rgba(234,179,8,0.4)">
+      <i class="fas fa-space-shuttle" style="margin-right: 0.4rem;"></i> Bitácora de Exploración Extragaláctica
+    </h3>
+    <p id="instructions-speech-text" style="font-size:0.73rem; color:#f1f5f9; line-height:1.5; margin-bottom:0.9rem; text-align: center;">
+      ¡Piloto, te damos la bienvenida! Vienes de un universo oscuro sin estrellas. Te has topado con este Sistema Solar y tu misión es investigar sus cuerpos celestes.
+    </p>
+
+    <!-- Explicación de la dinámica -->
+    <div style="display:flex; flex-direction:column; gap:0.75rem; margin-bottom:1rem;">
+      <div style="display:flex; gap:0.6rem; align-items:flex-start;">
+        <span style="font-size:1.2rem; background:rgba(6,182,212,0.15); border:1px solid var(--c); border-radius:8px; width:32px; height:32px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">🌌</span>
+        <div>
+          <h4 style="font-size:0.72rem; font-weight:800; color:var(--c); text-transform:uppercase; margin-bottom:0.05rem;">El Desafío (11 Misiones)</h4>
+          <p style="font-size:0.65rem; color:var(--mut); line-height:1.35;">Debes completar **11 paradas obligatorias** en orden estricto desde el Sol hacia afuera. ¡No puedes saltarte planetas!</p>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:0.6rem; align-items:flex-start;">
+        <span style="font-size:1.2rem; background:rgba(239,68,68,0.15); border:1px solid #ef4444; border-radius:8px; width:32px; height:32px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">⚠️</span>
+        <div>
+          <h4 style="font-size:0.72rem; font-weight:800; color:#ef4444; text-transform:uppercase; margin-bottom:0.05rem;">Contratempos de Vuelo</h4>
+          <p style="font-size:0.65rem; color:var(--mut); line-height:1.35;">Al llegar a cada parada, las extremas temperaturas o gases provocarán una falla. La nave no podrá despegar hasta ser reparada.</p>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:0.6rem; align-items:flex-start;">
+        <span style="font-size:1.2rem; background:rgba(16,185,129,0.15); border:1px solid #10b981; border-radius:8px; width:32px; height:32px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">🔧</span>
+        <div>
+          <h4 style="font-size:0.72rem; font-weight:800; color:#10b981; text-transform:uppercase; margin-bottom:0.05rem;">Autoreparación Científica</h4>
+          <p style="font-size:0.65rem; color:var(--mut); line-height:1.35;">Responde correctamente a los dilemas de Ciencias de la Naturaleza de 4to Grado para calibrar la nave y desbloquear el viaje.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mapa de Ruta del Viaje -->
+    <div style="background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.07); border-radius:10px; padding:0.6rem; margin-bottom:1.1rem;">
+      <h5 style="font-size:0.62rem; color:var(--g); text-transform:uppercase; font-weight:800; letter-spacing:0.5px; margin-bottom:0.35rem; text-align:center;">
+        Plan de Vuelo Estricto (11 Paradas)
+      </h5>
+      <p style="font-size:0.58rem; color:#cbd5e1; text-align:center; line-height:1.55; word-spacing:1px; margin:0;">
+        ☀️ Sol &rarr; 🪨 Mercurio &rarr; 🌋 Venus &rarr; 🌍 Tierra &rarr; 🌙 Luna &rarr; 🔴 Marte &rarr; 🌀 Júpiter &rarr; 🪐 Saturno &rarr; 🔵 Urano &rarr; 🔵 Neptuno &rarr; ☄️ Asteroides
+      </p>
+    </div>
+
+    <!-- Botón de despegue inicial -->
+    <button id="btn-confirm-instructions" class="btn-cont" style="background: linear-gradient(135deg, var(--g), #d97706); color:#0f172a; padding:0.65rem; font-size:0.78rem;">
+      ¡Iniciar Misión de Descubrimiento! 🚀
+    </button>
+  </div>
+</div>
+
+
+<!-- Cinemática de Aterrizaje en Planeta -->
+<div id="landing-cinematic" class="land-ov">
+  <div id="land-planet-orb"></div>
+  <div class="land-ship-area">
+    <span class="land-ship-em">🚀</span>
+    <span id="land-avatar-face" class="land-av-em">👨‍🚀</span>
+  </div>
+  <div id="land-operation-status" style="font-size:0.75rem; font-weight:800; color:var(--c); text-transform:uppercase; margin-top:1.2rem; letter-spacing:1.2px; background:rgba(6,182,212,0.18); padding:0.4rem 0.95rem; border-radius:30px; border:1px solid rgba(6,182,212,0.35); text-shadow:0 0 6px rgba(6,182,212,0.3)">ANALIZANDO ÓRBITA...</div>
+  <h2 id="land-planet-name" class="land-pname" style="margin-top:0.4rem; text-shadow: 0 0 10px rgba(255,255,255,0.25);">Aterrizando...</h2>
+  <p  id="land-planet-fact" class="land-pfact" style="max-width:480px; line-height:1.55; color:rgba(255,255,255,0.85); margin-top:0.4rem; padding:0 1.2rem; text-align:center;"></p>
+  <div class="land-prog-wrap"><div id="land-prog-fill" class="land-prog-fill"></div></div>
+  <button class="land-dismiss" onclick="closeLandingCinematic()">Saltar cinemática ✕</button>
+</div>
+
+
+<!-- Trivia -->
+<div id="trivia-overlay" class="trivia-ov">
+  <div class="trivia-card" id="trivia-card">
+    <button id="btn-close-trivia" class="sid-close"><i class="fas fa-times"></i></button>
+    
+    <!-- Bloque de Pregunta y Opciones -->
+    <div id="trivia-question-block">
+      <h3 id="trivia-planet-name">Desafío Espacial</h3>
+
+      <p id="trivia-question-text" class="trivia-q">Cargando...</p>
+      <div id="trivia-options-container" class="trivia-opts"></div>
+      <div id="trivia-hint" class="trivia-hint">
+        <strong><i class="fas fa-lightbulb"></i> Pista del Guía:</strong>
+        <p id="trivia-hint-text"></p>
+      </div>
+      <div id="trivia-result-msg" class="hidden"></div>
+    </div>
+
+    <!-- Bloque de Autoreparación Inmersiva (Soldaduras / Diagnósticos) -->
+    <div id="trivia-repair-block" class="hidden">
+      <h3 style="color:#10b981; font-size:1.05rem; font-weight:900; letter-spacing:1px; text-transform:uppercase; margin-bottom:0.4rem;">
+        <i class="fas fa-tools fa-spin" style="margin-right:0.4rem;"></i> Autoreparación de Soporte Vital
+      </h3>
+      <p style="font-size:0.72rem; color:rgba(255,255,255,0.65);">Diagnósticos y recalibración de sistemas del fuselaje en curso...</p>
+      
+      <!-- Holograma de nave 2D parpadeante -->
+      <div class="repair-hologram">
+        <span class="repair-ship-icon">🛸</span>
+        <div class="repair-laser"></div>
+        <div class="repair-spark" style="top:25%; left:30%;"></div>
+        <div class="repair-spark" style="top:60%; left:65%; animation-delay:0.3s;"></div>
+        <div class="repair-spark" style="top:42%; left:22%; animation-delay:0.6s;"></div>
+      </div>
+
+      <!-- Consola de soldaduras/diagnósticos -->
+      <div class="repair-console" id="repair-console-terminal">
+        <div class="console-line text-cyan-400">&gt; INICIANDO DIAGNÓSTICO DE INCIDENTE...</div>
+      </div>
+
+      <!-- Barra de progreso -->
+      <div class="repair-prog-bar">
+        <div class="repair-prog-fill" id="repair-prog-fill"></div>
+      </div>
+      <div class="repair-prog-pct" id="repair-prog-pct">0%</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Badge unlock -->
+<div id="badge-unlock-overlay" class="modal-ov">
+  <div class="badge-card">
+    <div class="badge-shimmer"><span id="unlocked-badge-icon">⭐</span></div>
+    <h2>¡Misión Completada!</h2>
+    <h3 id="unlocked-badge-name" style="background:linear-gradient(135deg,#eab308,#f59e0b);
+        -webkit-background-clip:text;-webkit-text-fill-color:transparent">Insignia Cósmica</h3>
+    <p  id="unlocked-badge-desc">Has desbloqueado una insignia de honor.</p>
+    <button id="btn-close-badge-overlay" class="btn-cont">
+      Continuar Viaje <i class="fas fa-space-shuttle"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Certificate -->
+<div id="cert-modal" class="modal-ov">
+  <div class="cert-box">
+    <div class="cert-wrap"><canvas id="certificate-canvas"></canvas></div>
+    <div class="cert-acts">
+      <button id="btn-download-cert" class="btn-cert"><i class="fas fa-download"></i> Guardar Diploma</button>
+      <button id="btn-close-cert"    class="btn-cert sec"><i class="fas fa-arrow-left"></i> Volver al Espacio</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal de Login del Maestro (Admin) -->
+<div id="admin-login-overlay" style="display:none; align-items:center; justify-content:center; position:fixed; inset:0; background:rgba(2,6,23,0.85); backdrop-filter:blur(10px); z-index:9999;">
+  <div class="glass-panel" style="width:100%; max-width:380px; padding:2rem; border-radius:24px; border:1px solid rgba(239, 68, 68, 0.3); box-shadow:0 0 30px rgba(239,68,68,0.15); text-align:center;">
+    <h3 style="color:#ef4444; font-size:1.15rem; font-weight:800; text-transform:uppercase; margin-bottom:0.5rem; display:flex; align-items:center; justify-content:center; gap:0.5rem;">
+      <i class="fas fa-lock"></i> Acceso del Maestro
+    </h3>
+    <p style="font-size:0.72rem; color:var(--text-muted); margin-bottom:1.5rem;">Ingresa tus credenciales de docente para ver el progreso de los estudiantes.</p>
+    
+    <div style="display:flex; flex-direction:column; gap:0.9rem; text-align:left; margin-bottom:1.5rem;">
+      <div>
+        <label style="font-size:0.65rem; text-transform:uppercase; font-weight:700; color:var(--text-muted); display:block; margin-bottom:0.35rem;">Usuario</label>
+        <input type="text" id="admin-username" placeholder="admin" style="width:100%; height:38px; border-radius:8px; border:1px solid rgba(255,255,255,0.1); background:rgba(0,0,0,0.3); color:white; padding:0 0.8rem; font-size:0.78rem; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+      </div>
+      <div>
+        <label style="font-size:0.65rem; text-transform:uppercase; font-weight:700; color:var(--text-muted); display:block; margin-bottom:0.35rem;">Contraseña</label>
+        <input type="password" id="admin-password" placeholder="••••••••" style="width:100%; height:38px; border-radius:8px; border:1px solid rgba(255,255,255,0.1); background:rgba(0,0,0,0.3); color:white; padding:0 0.8rem; font-size:0.78rem; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+      </div>
+    </div>
+    
+    <div style="display:flex; gap:0.6rem;">
+      <button id="btn-submit-admin-login" class="btn-cert" style="flex:1; font-size:0.72rem; padding:0.5rem; justify-content:center; background:#ef4444; border-color:#ef4444; color:white;">Acceder</button>
+      <button id="btn-cancel-admin-login" class="btn-cert sec" style="flex:1; font-size:0.72rem; padding:0.5rem; justify-content:center; color:rgba(255,255,255,0.7);">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Consola de Control de Estudiantes -->
+<div id="admin-panel-overlay" style="display:none; align-items:center; justify-content:center; position:fixed; inset:0; background:rgba(2,6,23,0.85); backdrop-filter:blur(10px); z-index:9999;">
+  <div class="glass-panel" style="width:90%; max-width:980px; padding:2rem; border-radius:24px; border:1px solid rgba(6, 182, 212, 0.25); box-shadow:0 0 35px rgba(6,182,212,0.15); display:flex; flex-direction:column; gap:1.2rem;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:0.8rem;">
+      <div>
+        <h3 style="color:var(--secondary); font-size:1.15rem; font-weight:800; text-transform:uppercase; display:flex; align-items:center; gap:0.5rem; margin-bottom:0.25rem;">
+          <i class="fas fa-users-cog"></i> Panel de Alumnos Registrados
+        </h3>
+        <p style="font-size:0.72rem; color:var(--text-muted);">Estadísticas de avance en tiempo real desde la base de datos centralizada.</p>
+      </div>
+      <button id="btn-close-admin-panel" style="background:transparent; border:none; color:rgba(255,255,255,0.45); font-size:1.2rem; cursor:pointer; transition:color 0.2s;" onmouseover="this.style.color='#ef4444'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+        <i class="fas fa-times-circle"></i>
+      </button>
+    </div>
+    
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <button id="btn-refresh-students" class="btn-cert-action" style="background:rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.35); color:var(--c); font-size:0.72rem; padding:0.5rem 1rem; border-radius:8px; cursor:pointer; font-weight:bold;">
+        <i class="fas fa-sync-alt"></i> Actualizar Servidor
+      </button>
+      <span id="student-count-badge" style="font-size:0.68rem; color:rgba(255,255,255,0.45); font-weight:600;">0 registros en backend</span>
+    </div>
+
+    <!-- Tabla con Scroll -->
+    <div style="width:100%; max-height:350px; overflow-y:auto; background:rgba(0,0,0,0.3); border-radius:12px; border: 1px solid rgba(255,255,255,0.06);">
+      <table style="width:100%; border-collapse:collapse; text-align:left; font-size:0.76rem;">
+        <thead>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.02); color:rgba(255,255,255,0.65); position:sticky; top:0; background:rgba(8,14,32,0.95); z-index:2;">
+            <th style="padding:0.75rem 1rem;">Estudiante</th>
+            <th style="padding:0.75rem 1rem;">Avatar</th>
+            <th style="padding:0.75rem 1rem; text-align:center;">Misiones Resueltas</th>
+            <th style="padding:0.75rem 1rem; text-align:center;">Puntaje (XP)</th>
+            <th style="padding:0.75rem 1rem;">Fecha Actividad</th>
+            <th style="padding:0.75rem 1rem; text-align:center;">Acción</th>
+          </tr>
+        </thead>
+        <tbody id="teacher-students-table-body">
+          <tr>
+            <td colspan="6" style="padding:2rem; text-align:center; color:var(--text-muted);">
+              Presiona "Actualizar Servidor" para cargar registros.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="js/data.js"></script>
+<script src="js/metaverse.js"></script>
+<script src="js/app.js"></script>
+
+<!-- Accordion -->
+<script>
+(function(){
+  var btn  = document.getElementById('acc-btn');
+  var body = document.getElementById('acc-body');
+  if(!btn||!body) return;
+  btn.addEventListener('click', function(){
+    var o = body.classList.toggle('open');
+    btn.classList.toggle('open', o);
+    btn.setAttribute('aria-expanded', o);
+  });
+})();
+</script>
+
+</body>
+</html>

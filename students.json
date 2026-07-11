@@ -1,0 +1,28 @@
+[
+  {
+    "name": "admin",
+    "avatar": "astro_boy",
+    "score": 100,
+    "completedMissions": {
+      "sun": true
+    },
+    "id": "1783727463162",
+    "timestamp": "2026-07-10T23:51:03.162Z"
+  },
+  {
+    "name": "admin",
+    "avatar": "astro_boy",
+    "score": 0,
+    "completedMissions": {},
+    "timestamp": "2026-07-10T23:54:41.839Z",
+    "id": "1783727681839"
+  },
+  {
+    "name": "admin",
+    "avatar": "astro_boy",
+    "score": 0,
+    "completedMissions": {},
+    "timestamp": "2026-07-10T23:59:18.882Z",
+    "id": "1783727958881"
+  }
+]
